@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ужасы анекдоты тёмная тропа — Александр Киреев</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        horror: {
+                            bg: '#0a0a0f',
+                            card: '#12121a',
+                            border: '#2a2a3c',
+                            red: '#e53e3e',
+                            purple: '#805ad5',
+                            emerald: '#10b981',
+                            accent: '#9f7aea'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #08070c;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(128, 90, 213, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(229, 62, 62, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .glow-red:hover {
+            box-shadow: 0 0 20px rgba(229, 62, 62, 0.4);
+        }
+
+        .glow-purple:hover {
+            box-shadow: 0 0 20px rgba(128, 90, 213, 0.4);
+        }
+
+        .border-glow {
+            border: 1px solid rgba(159, 122, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .border-glow:hover {
+            border-color: rgba(159, 122, 234, 0.6);
+        }
+
+        .avatar-frame {
+            position: relative;
+            background: linear-gradient(135deg, #e53e3e, #805ad5);
+            padding: 3px;
+            border-radius: 9999px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08070c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a3c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #805ad5;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-900 selection:text-white">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-opacity-80 bg-[#08070c] border-b border-horror-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Title -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-red-600 to-purple-600 flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-ghost fa-skull text-lg"></i>
+                    </div>
+                    <span class="font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-purple-400 transition-colors">
+                        Тёмная Тропа
+                    </span>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#about" class="text-gray-300 hover:text-purple-400 transition-colors">Об авторе</a>
+                    <a href="#links" class="text-gray-300 hover:text-purple-400 transition-colors">Все каналы</a>
+                    <a href="#security" class="text-gray-300 hover:text-purple-400 transition-colors">Защита и безопасность</a>
+                    <a href="#contacts" class="text-gray-300 hover:text-purple-400 transition-colors">Контакты</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Открыть меню" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-horror-card focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-horror-card border-b border-horror-border px-4 pt-2 pb-4 space-y-3">
+            <a href="#about" class="block py-2 text-gray-300 hover:text-purple-400 border-b border-gray-800">Об авторе</a>
+            <a href="#links" class="block py-2 text-gray-300 hover:text-purple-400 border-b border-gray-800">Все каналы и соцсети</a>
+            <a href="#security" class="block py-2 text-gray-300 hover:text-purple-400 border-b border-gray-800">Безопасность и код</a>
+            <a href="#contacts" class="block py-2 text-gray-300 hover:text-purple-400">Контакты</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- HERO & ABOUT AUTHOR SECTION -->
+        <section id="about" class="bg-horror-card rounded-2xl p-6 sm:p-10 border border-horror-border shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                <!-- Avatar Frame -->
+                <div class="avatar-frame flex-shrink-0 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=400" 
+                         alt="Александр Киреев — Фото/Аватар" 
+                         class="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover bg-horror-bg"
+                         onerror="this.src='https://placehold.co/400x400/12121a/9f7aea?text=Александр+Киреев'">
+                </div>
+
+                <!-- Bio / Info -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/30 text-purple-300 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-check-circle text-emerald-400"></i> Авторский Медиапроект
+                    </div>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Ужасы анекдоты тёмная тропа
+                    </h1>
+                    <p class="text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl">
+                        Привет! Я <strong class="text-purple-300">Александр Киреев</strong> — автор и владелец проекта <i>«Ужасы анекдоты тёмная тропа»</i>. 
+                        Я рассказываю мистические анекдоты, истории ужасов, предания и исследую тему аномальных созданий и сущностей других миров.
+                    </p>
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
+                        <a href="#links" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-500 hover:to-purple-500 text-white font-medium text-sm transition-all shadow-lg glow-purple flex items-center gap-2">
+                            <i class="fa-solid fa-compass"></i> Найти мои каналы
+                        </a>
+                        <a href="#contacts" class="px-5 py-2.5 rounded-xl bg-horror-bg hover:bg-gray-800 text-gray-200 font-medium text-sm border border-horror-border transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-envelope"></i> Написать письмо
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECURITY & CODE INTEGRITY STATEMENT -->
+        <section id="security" class="bg-horror-card rounded-2xl p-6 sm:p-8 border border-horror-border relative">
+            <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-red-950/80 border border-red-500/40 text-red-400 flex items-center justify-center flex-shrink-0 text-xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="space-y-2">
+                    <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                        Безопасность и защита кода
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Данный ресурс работает под строгим защитным протоколом. **Интеграция, копирование, внедрение или модификация стороннего кода без прямого согласия автора (Александра Киреева) запрещена.** Все проблемы безопасности и уязвимости своевременно устраняются автором проекта для обеспечения удобного и надежного управления площадками.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL LINKS & CHANNELS GRID -->
+        <section id="links" class="space-y-6">
+            <div class="text-center md:text-left space-y-1">
+                <h2 class="text-2xl font-bold text-white flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-link text-purple-400"></i> Мои официальные страницы и соцсети
+                </h2>
+                <p class="text-sm text-gray-400">
+                    Переходите по официальным ссылкам ниже, чтобы подписываться и смотреть новый контент:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@Alexander_Kireev_50005" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-red-500/50 transition-all group flex items-center justify-between glow-red">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-red-600/20 text-red-500 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-red-400 transition-colors">YouTube Канал</h3>
+                            <p class="text-xs text-gray-400">@Alexander_Kireev_50005</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/AlexanderKireev50005" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-sky-500/50 transition-all group flex items-center justify-between border-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-sky-300 transition-colors">Telegram Канал</h3>
+                            <p class="text-xs text-gray-400">t.me/AlexanderKireev50005</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- VK Community -->
+                <a href="https://vk.ru/alexander_kireev_50005" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-blue-500/50 transition-all group flex items-center justify-between border-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-vk"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-blue-300 transition-colors">Сообщество VK</h3>
+                            <p class="text-xs text-gray-400">vk.ru/alexander_kireev_50005</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- VK Club 241282620 -->
+                <a href="https://vk.ru/club241282620" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-blue-500/50 transition-all group flex items-center justify-between border-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-vk"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-blue-300 transition-colors">Второй паблик VK</h3>
+                            <p class="text-xs text-gray-400">vk.ru/club241282620</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- Twitter / X -->
+                <a href="https://twitter.com/dark_trail_5000" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-gray-400/50 transition-all group flex items-center justify-between border-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-gray-700/30 text-gray-200 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-gray-300 transition-colors">Twitter / X</h3>
+                            <p class="text-xs text-gray-400">@dark_trail_5000</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- MAX Channel -->
+                <a href="https://max.ru/channel_ALEXANDERKireev50005" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-emerald-500/50 transition-all group flex items-center justify-between border-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-emerald-300 transition-colors">Публичный Канал MAX</h3>
+                            <p class="text-xs text-gray-400">max.ru/channel_ALEXANDERKireev...</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com/alexanderkireev88" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-indigo-500/50 transition-all group flex items-center justify-between border-glow">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-facebook"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-indigo-300 transition-colors">Facebook Профиль</h3>
+                            <p class="text-xs text-gray-400">alexanderkireev88</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+                <!-- Netlify Official Web Site -->
+                <a href="https://darktrail.netlify.app" target="_blank" rel="noopener noreferrer" 
+                   class="bg-horror-card p-5 rounded-xl border border-horror-border hover:border-purple-500/50 transition-all group flex items-center justify-between glow-purple">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-white group-hover:text-purple-300 transition-colors">Официальный Сайт</h3>
+                            <p class="text-xs text-gray-400">darktrail.netlify.app</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-gray-500 group-hover:text-white transition-colors text-sm"></i>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contacts" class="bg-gradient-to-b from-horror-card to-[#0d0d16] rounded-2xl p-6 sm:p-10 border border-horror-border text-center space-y-6">
+            <div class="max-w-xl mx-auto space-y-3">
+                <div class="w-16 h-16 rounded-full bg-purple-900/30 text-purple-400 border border-purple-500/30 mx-auto flex items-center justify-center text-2xl">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">
+                    Обратная связь и вопросы
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base">
+                    По всем вопросам, предложениям о сотрудничестве или идеям пишите на официальную почту проекта:
+                </p>
+            </div>
+
+            <!-- Email Box with Interactive Copy Button -->
+            <div class="inline-flex flex-col sm:flex-row items-center gap-3 bg-horror-bg p-2 sm:p-3 rounded-2xl border border-horror-border max-w-md w-full mx-auto">
+                <div class="flex items-center gap-3 px-3 py-2 w-full sm:w-auto text-left justify-center">
+                    <i class="fa-solid fa-envelope text-purple-400 text-lg"></i>
+                    <span id="email-text" class="font-mono text-white text-base select-all">dark.trail@mail.ru</span>
+                </div>
+                <button id="copy-email-btn" onclick="copyEmail()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-sm transition-colors flex items-center justify-center gap-2">
+                    <i id="copy-icon" class="fa-regular fa-copy"></i>
+                    <span id="copy-btn-text">Скопировать</span>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-500">
+                Или напрямую создайте новое письмо в вашем почтовом клиенте.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER & COPYRIGHT -->
+    <footer id="copyright" class="border-t border-horror-border bg-[#050508] py-8 mt-12 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-4 space-y-3">
+            <div class="flex justify-center items-center gap-2 text-gray-400 font-medium text-sm">
+                <i class="fa-solid fa-skull-crossbones text-red-500"></i>
+                <span>Проект: Ужасы анекдоты тёмная тропа</span>
+            </div>
+            <p class="text-gray-400">
+                © 2026 Александр Киреев. Все авторские права защищены.
+            </p>
+            <p class="text-gray-600 max-w-lg mx-auto">
+                Любое несанкционированное копирование материалов, интеграция внешнего кода или использование контента без согласия правообладателя запрещено.
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Toggle Mobile Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close Mobile Menu on Link Click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Copy Email Functionality
+        function copyEmail() {
+            const emailText = document.getElementById('email-text').innerText;
+            const btnText = document.getElementById('copy-btn-text');
+            const icon = document.getElementById('copy-icon');
+
+            // Copying text using fallback-safe execCommand
+            const tempInput = document.createElement('input');
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                btnText.innerText = 'Скопировано!';
+                icon.className = 'fa-solid fa-check text-emerald-400';
+                
+                setTimeout(() => {
+                    btnText.innerText = 'Скопировать';
+                    icon.className = 'fa-regular fa-copy';
+                }, 2500);
+            } catch (err) {
+                console.error('Ошибка копирования', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+    </script>
+</body>
+</html>
